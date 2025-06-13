@@ -159,3 +159,74 @@ ul {
         width: 90%;
     }
 }
+
+/* Yo */
+.task-column {
+    padding: 10px;
+    background-color: #f8f9fa; /* светлый фон секции */
+    border-radius: 5px;
+}
+
+/* Цвета секций */
+.backlog { background-color: #e6f0ff; }
+.in-progress { background-color: #e6f0ff; }
+.done { background-color: #e6f0ff; }
+.trash { background-color: #e6f0ff; }
+
+/* Заголовки выглядят как задачи */
+.task-column h3 {
+    margin: 10px 0;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: white;
+    font-size: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    font-weight: normal;
+}
+
+/* Левая цветная полоска у заголовков */
+.backlog h3 {
+    background: linear-gradient(to right, #d6d6d6 5px, #f0f0f0 5px);
+    color: #707070;
+}
+.in-progress h3 {
+    background: linear-gradient(to right, #d6d6d6 5px, #deebff 5px);
+    color: #0056b3;
+}
+.done h3 {
+    background: linear-gradient(to right, #d6d6d6 5px, #e6f9f0 5px);
+    color: #2e7d32;
+}
+.trash h3 {
+    background: linear-gradient(to right, #d6d6d6 5px, #ffe6e6 5px);
+    color: #b71c1c;
+}
+
+/* Задачи */
+.task {
+    padding: 25px;
+    margin: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    font-size: 20px;
+    background-color: white;
+    
+}
+.task-column.done.task{
+    background: linear-gradient(to right, #d6d6d6 5px, #ffe6e6 5px);
+    color: #b71c1c;
+}
+
+.task[data-status="backlog"] {
+    background: linear-gradient(to right, #d6d6d6 5px, #f0f0f0 5px);
+    color: #707070;
+}
+.task[data-status="in-progress"] {
+    background: linear-gradient(to right, #6ea8fe 5px, #ffffff 5px);
+}
+.task[data-status="done"] {
+    background: linear-gradient(to right, #76c893 5px, #ffffff 5px);
+}
+.task[data-status="trash"] {
+    background: linear-gradient(to right, #e57373 5px, #ffffff 5px);
+}
