@@ -1,115 +1,160 @@
-/* Общий стиль */
-* {
-    box-sizing: border-box;
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e3f2fd;
     margin: 0;
     padding: 0;
-    font-family: "Segoe UI", sans-serif;
-  }
-  
-  body {
-    background-color: #eef4fb;
-    padding: 20px;
-  }
-  
-  /* Заголовок */
-  header {
-    background-color: #3f86f2;
-    color: white;
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  /* Блок добавления задачи */
-  .add-task {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    margin-bottom: 30px;
     display: flex;
-    gap: 10px;
+    flex-direction: column;
     align-items: center;
-    flex-wrap: wrap;
-  }
-  
-  .add-task input {
-    padding: 10px;
-    flex: 1;
-    min-width: 200px;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-  }
-  
-  .add-btn {
-    background-color: #2e6df6;
+    height: 100vh;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    border: 0;
+}
+
+.header {
+    background: #007bff;
     color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-  }
-  
-  .add-btn:hover {
-    background-color: #1c4fd1;
-  }
-  
-  /* Доска задач */
-  .task-board {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  
-  /* Колонки */
-  .column {
-    background-color: white;
-    border-radius: 12px;
     padding: 15px;
-    width: 220px;
-    flex-grow: 1;
-    min-height: 200px;
-  }
-  
-  .column h3 {
-    margin-bottom: 10px;
-    padding: 5px 10px;
-    border-radius: 6px;
-    display: inline-block;
-  }
-  
-  /* Индивидуальные стили заголовков */
-  .backlog h3 { background-color: #d3d3d3; }
-  .in-progress h3 { background-color: #cce0ff; }
-  .done h3 { background-color: #ccffe0; }
-  .trash h3 { background-color: #ffd6d6; }
-  
-  /* Задача */
-  .task {
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    padding: 10px;
-    border-radius: 8px;
-    margin: 8px 0;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-  }
-  
-  /* Кнопка очистки */
-  .clear-btn {
-    background-color: #d9534f;
-    color: white;
-    padding: 10px;
-    width: 100%;
-    margin-top: 15px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
+    font-size: 30px;
+    text-align: left;
     font-weight: bold;
-  }
-  
-  .clear-btn:hover {
-    background-color: #c9302c;
-  }
-  
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 90%;
+    max-width: 1600px;
+    padding-top: 70px;
+    margin-top: 60px;
+}
+
+.task-input {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 35%;
+    min-width: 300px;
+    transition: width 0.3s ease;
+}
+
+.input-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+@media (min-width: 500px) {
+    .input-container input,
+    .input-container button {
+        flex: 1;
+    }
+}
+
+@media (max-width: 499px) {
+    .input-container input,
+    .input-container button {
+        flex: 1 1 100%;
+    }
+}
+
+.task-input input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.task-input button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.task-sections {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.task-column {
+    padding: 10px;
+}
+
+.task-column h3 {
+    display: inline-block;
+    text-align: center;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 20px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.backlog h3 { background: #b0b0b0; color: #707070; }
+.in-progress h3 { background: #6ea8fe; color: #0056b3; }
+.done h3 { background: #76c893; color: #2e7d32; }
+.trash h3 { background: #e57373; color: #b71c1c; }
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.task {
+    padding: 25px;
+    margin: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    font-size: 20px;
+}
+
+.task[data-status="backlog"] { background: linear-gradient(to right, #b0b0b0 1%, #ffffff 1%); }
+.task[data-status="in-progress"] { background: linear-gradient(to right, #6ea8fe 1%, #ffffff 1%); }
+.task[data-status="done"] { background: linear-gradient(to right, #76c893 1%, #ffffff 1%); }
+.task[data-status="trash"] { background: linear-gradient(to right, #e57373 1%, #ffffff 1%); }
+
+.clear-btn {
+    display: block;
+    width: 100%;
+    background: #e57373;
+    color: white;
+    border: none;
+    padding: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    .task-sections {
+        grid-template-columns: 1fr;
+    }
+    .task-input {
+        width: 90%;
+    }
+}
