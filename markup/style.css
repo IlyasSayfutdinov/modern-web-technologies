@@ -1,4 +1,3 @@
-
 body {
     font-family: Arial, sans-serif;
     background-color: #e3f2fd;
@@ -34,17 +33,7 @@ body {
     z-index: 10;
 }
 
-.main-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 90%;
-    max-width: 1600px;
-    padding-top: 70px;
-    margin-top: 60px;
-}
-
-.task-input {
+.widget__inner {
     background: white;
     padding: 15px;
     border-radius: 10px;
@@ -55,36 +44,37 @@ body {
     width: 35%;
     min-width: 300px;
     transition: width 0.3s ease;
+    margin-top: 70px;
 }
 
-.input-container {
+.form {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
 }
 
 @media (min-width: 500px) {
-    .input-container input,
-    .input-container button {
+    .form input,
+    .form button {
         flex: 1;
     }
 }
 
 @media (max-width: 499px) {
-    .input-container input,
-    .input-container button {
+    .form input,
+    .form button {
         flex: 1 1 100%;
     }
 }
 
-.task-input input {
+.form__input {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 20px;
 }
 
-.task-input button {
+.form__btn {
     background: #007bff;
     color: white;
     border: none;
@@ -94,86 +84,57 @@ body {
     font-size: 20px;
 }
 
-.task-sections {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 10px;
-    width: 100%;
-    margin-top: 20px;
-}
-
-.task-column {
+.board__column {
     padding: 10px;
-}
-
-.task-column h3 {
-    display: inline-block;
-    text-align: center;
-    padding: 10px 15px;
+    background-color: #f8f9fa;
     border-radius: 5px;
-    font-size: 20px;
-    color: white;
-    margin-bottom: 10px;
 }
 
-.backlog h3 { background: #b0b0b0; color: #707070; }
-.in-progress h3 { background: #6ea8fe; color: #0056b3; }
-.done h3 { background: #76c893; color: #2e7d32; }
-.trash h3 { background: #e57373; color: #b71c1c; }
-
-ul {
+.task-column__list {
     list-style: none;
     padding: 0;
+    margin: 0;
+}
+
+.taskboard__item {
+    margin: 10px 0;
 }
 
 .task {
     padding: 25px;
-    margin: 10px 0;
     border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     font-size: 20px;
+    background-color: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-.task[data-status="backlog"] { background: linear-gradient(to right, #b0b0b0 1%, #ffffff 1%); }
-.task[data-status="in-progress"] { background: linear-gradient(to right, #6ea8fe 1%, #ffffff 1%); }
-.task[data-status="done"] { background: linear-gradient(to right, #76c893 1%, #ffffff 1%); }
-.task[data-status="trash"] { background: linear-gradient(to right, #e57373 1%, #ffffff 1%); }
-
-.clear-btn {
-    display: block;
-    width: 100%;
-    background: #e57373;
-    color: white;
-    border: none;
-    padding: 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
+.task-placeholder {
+    color: #999;
+    font-style: italic;
 }
 
-@media (max-width: 768px) {
-    .task-sections {
-        grid-template-columns: 1fr;
-    }
-    .task-input {
-        width: 90%;
-    }
+/* Статусы задач (карточек) */
+.task--backlog {
+    background: linear-gradient(to right, #d6d6d6 5px, #f0f0f0 5px);
+    color: #707070;
 }
 
-/* Yo */
-.task-column {
-    padding: 10px;
-    background-color: #f8f9fa; /* светлый фон секции */
-    border-radius: 5px;
+.task--in-progress {
+    background: linear-gradient(to right, #6ea8fe 5px, #ffffff 5px);
+    color: #0056b3;
 }
 
-/* Цвета секций */
-.backlog { background-color: #e6f0ff; }
-.in-progress { background-color: #e6f0ff; }
-.done { background-color: #e6f0ff; }
-.trash { background-color: #e6f0ff; }
+.task--done {
+    background: linear-gradient(to right, #76c893 5px, #ffffff 5px);
+    color: #2e7d32;
+}
 
-/* Заголовки выглядят как задачи */
+.task--trash {
+    background: linear-gradient(to right, #e57373 5px, #ffffff 5px);
+    color: #b71c1c;
+}
+
+/* Названия колонок */
 .task-column h3 {
     margin: 10px 0;
     padding: 20px;
@@ -184,49 +145,43 @@ ul {
     font-weight: normal;
 }
 
-/* Левая цветная полоска у заголовков */
-.backlog h3 {
+/* Цветные полоски у заголовков */
+.task-column--backlog h3 {
     background: linear-gradient(to right, #d6d6d6 5px, #f0f0f0 5px);
     color: #707070;
 }
-.in-progress h3 {
+
+.task-column--in-progress h3 {
     background: linear-gradient(to right, #d6d6d6 5px, #deebff 5px);
     color: #0056b3;
 }
-.done h3 {
+
+.task-column--done h3 {
     background: linear-gradient(to right, #d6d6d6 5px, #e6f9f0 5px);
     color: #2e7d32;
 }
-.trash h3 {
+
+.task-column--trash h3 {
     background: linear-gradient(to right, #d6d6d6 5px, #ffe6e6 5px);
     color: #b71c1c;
 }
 
-/* Задачи */
-.task {
+/* Плейсхолдер для пустых колонок */
+.task-column__item--empty .task__body {
     padding: 25px;
-    margin: 10px 0;
     border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     font-size: 20px;
-    background-color: white;
-    
-}
-.task-column.done.task{
-    background: linear-gradient(to right, #d6d6d6 5px, #ffe6e6 5px);
-    color: #b71c1c;
+    background-color: #f0f0f0;
+    text-align: center;
+    color: #999;
 }
 
-.task[data-status="backlog"] {
-    background: linear-gradient(to right, #d6d6d6 5px, #f0f0f0 5px);
-    color: #707070;
-}
-.task[data-status="in-progress"] {
-    background: linear-gradient(to right, #6ea8fe 5px, #ffffff 5px);
-}
-.task[data-status="done"] {
-    background: linear-gradient(to right, #76c893 5px, #ffffff 5px);
-}
-.task[data-status="trash"] {
-    background: linear-gradient(to right, #e57373 5px, #ffffff 5px);
+@media (max-width: 768px) {
+    .widget__inner {
+        width: 90%;
+    }
+
+    .board__column {
+        width: 100%;
+    }
 }
