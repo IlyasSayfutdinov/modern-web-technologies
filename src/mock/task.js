@@ -38,10 +38,5 @@ export const tasks = [
         id: "8",
         title: "Зарегистрироваться на забег 5 км",
         status: "in-progress",
-    },
-    {
-        id: "9",
-        title: "Стать сухим и сильным",
-        status: "trash",
     }
 ];

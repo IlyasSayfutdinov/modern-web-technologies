@@ -129,6 +129,7 @@ body.board-app {
 
 /* Заголовок колонки */
 .task-column__title {
+    
     display: inline;
     font-size: 22px;
     font-weight: bold;
@@ -137,31 +138,47 @@ body.board-app {
 
 /* Цвета колонок по модификатору */
 .task-column--backlog h3 {
-    background-color: #b0b0b0;
+    background-color: #e3e3e3;
     color: #707070;
     padding: 10px;
     border-radius: 5px;
+    border-left: 5px solid #e3e3e3;
+    padding-right: 245px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .task-column--in-progress h3 {
-    background-color: #6ea8fe;
+    background-color: #d7e7ff;
     color: #0056b3;
     padding: 10px;
     border-radius: 5px;
+    border-left: 5px solid #e3e3e3;
+    padding-right: 190px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .task-column--done h3 {
-    background-color: #76c893;
+    background-color: #d8f8df;
     color: #2e7d32;
     padding: 10px;
     border-radius: 5px;
+    border-left: 5px solid #e3e3e3;
+    padding-right: 240px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .task-column--trash h3 {
-    background-color: #e57373;
+    background-color: #fbe3e1;
     color: #b71c1c;
     padding: 10px;
     border-radius: 5px;
+    border-left: 5px solid #e3e3e3;
+    padding-right: 210px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 /* Список задач */
@@ -197,19 +214,19 @@ body.board-app {
 
 /* Расцветка задач внутри колонки — по родительскому классу */
 .task-column--backlog .task-column__item {
-    border-left-color: #707070;
+    border-left-color: #e3e3e3;
 }
 
 .task-column--in-progress .task-column__item {
-    border-left-color: #0056b3;
+    border-left-color: #d7e7ff;
 }
 
 .task-column--done .task-column__item {
-    border-left-color: #2e7d32;
+    border-left-color: #d8f8df;
 }
 
 .task-column--trash .task-column__item {
-    border-left-color: #b71c1c;
+    border-left-color: #fbe3e1;
 }
 
 /* Контент задачи */
