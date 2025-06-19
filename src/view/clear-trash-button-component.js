@@ -1,19 +1,15 @@
 import { AbstractComponent } from "../framework/view/abstract-component.js";
 
-function createHeaderComponentTemplate() {
+function createClearTrashButtonTemplate() {
     return (
-        `
-            <header-section>
-                    <header class="header">Список задач</header>
-            </header-section>
-        `
+        '<button class="clear-btn">Х Очистить</button>'
     );
 }
 
-export default class HeaderComponent extends AbstractComponent {
+export default class ClearTrashButtonComponent extends AbstractComponent{
     
     get template() {
-        return createHeaderComponentTemplate();
+        return createClearTrashButtonTemplate();
     }
 
 }

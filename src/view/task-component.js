@@ -5,8 +5,12 @@ function createTaskComponentTemplate(task) {
     const {title, status} = task;
     return (
         `
-        <div class="taskboard__item task task--${status}">
-                <li class="task">${title}</li>    
+        <div class="task-column__item">
+            <div class="task__body">
+                <li class="task">${title}</li>  
+                <input type="text" class="task__edit-input" />              
+            </div>    
+            <button aria-label="Изменить" class="text__edit" type="button"></button>        
         </div>
         `
     );

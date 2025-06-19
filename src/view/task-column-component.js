@@ -3,7 +3,7 @@ import { AbstractComponent } from "../framework/view/abstract-component.js";
 function createTasksListComponentTemplate() {
     return (
         `
-            <ul class="task-column__list" ></ul>
+            <ul class="task-column__list"></ul>
         `
     );
 }
