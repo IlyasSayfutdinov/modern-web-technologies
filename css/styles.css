@@ -221,6 +221,7 @@ body.board-app {
     border-left-color: #d7e7ff;
 }
 
+
 .task-column--done .task-column__item {
     border-left-color: #d8f8df;
 }
